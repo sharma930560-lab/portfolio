@@ -1,4 +1,4 @@
-# FAANG-Level Next.js 14 Portfolio & Engineering Showcase
+#   Next.js 14 Portfolio & Engineering Showcase
 
 A high-performance, production-ready portfolio built with the modern tech stack of 2026. This system is designed for senior engineers and architects, combining immersive 3D experiences with institutional-grade architectural standards.
 
