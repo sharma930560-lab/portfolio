@@ -1,0 +1,97 @@
+{
+  "name": "Paras Sharma",
+  "title": "Full Stack Developer & AI Engineer",
+  "tagline": "Building enterprise-grade AI systems and premium web experiences.",
+  "location": "Shahjahanpur, UP, India",
+  "available": true,
+  "contact": {
+    "email": "ps9110831@gmail.com",
+    "phone": "+91-9305601506",
+    "whatsapp": "https://wa.me/919305601506?text=Hello%20Paras%2C%20I%20want%20to%20discuss%20a%20project",
+    "linkedin": "https://www.linkedin.com/in/paras-sharma-dev007",
+    "github": "https://github.com/sharma930560-lab"
+  },
+  "education": [
+    {
+      "degree": "MCA",
+      "institution": "Galgotias University",
+      "location": "Greater Noida",
+      "year": "2024–2026",
+      "cgpa": "9.25"
+    },
+    {
+      "degree": "BCA",
+      "institution": "Swami Sukhdevanand College",
+      "location": "Shahjahanpur",
+      "year": "2021–2024"
+    }
+  ],
+  "skills": {
+    "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"],
+    "backend": ["Python", "Django", "FastAPI", "Node.js", "REST APIs", "JWT Auth"],
+    "database": ["PostgreSQL", "MongoDB", "Redis"],
+    "devops": ["Docker", "CI/CD", "Netlify", "Git", "GitHub Actions"],
+    "ai_ml": ["Machine Learning", "NumPy", "Pandas", "LSTM", "Prompt Engineering", "Agentic Workflows", "Deep Learning"]
+  },
+  "projects": [
+    {
+      "name": "JOJO AI Trading Platform",
+      "description": "Institutional-grade derivatives trading platform with React, Node.js, and AI. Features JWT auth, live market dashboards, AI-assisted trade signals, and a full subscription system.",
+      "url": "https://jojo-ai-trading.netlify.app",
+      "tech": ["React", "Node.js", "AI", "JWT"]
+    },
+    {
+      "name": "Hindustan Infrastructure",
+      "description": "Premium corporate platform showcasing large-scale projects with parallax heroes, animated stats (500+ Projects, 20+ Years), and WhatsApp integration.",
+      "tech": ["React", "Tailwind CSS"]
+    },
+    {
+      "name": "AI Derivatives Analytics SaaS",
+      "description": "Production-ready system for Indian NSE derivatives using LSTM/ensemble ML models for market regime detection, real-time Options Greeks, and probabilistic trade signals.",
+      "tech": ["FastAPI", "Python", "LSTM", "ML"]
+    },
+    {
+      "name": "Smart Recruitment System",
+      "description": "AI-driven platform with Machine Learning engine for intelligent resume parsing. Scores ATS compatibility using custom NLP.",
+      "tech": ["Python", "NLP", "ML", "FastAPI"]
+    },
+    {
+      "name": "Multilingual Tweet Analysis",
+      "description": "Full-stack data pipeline processing massive datasets. Detects tweet languages using heavy NLP processing in Python, served via lightweight Node APIs.",
+      "tech": ["Python", "NLP", "Node.js"]
+    },
+    {
+      "name": "DSA Repository",
+      "description": "Highly optimized Python and TypeScript DSA repository focusing on absolute time complexity (O(1) space, O(N) time) featuring Kadane's, DFS, and LRU Cache designs.",
+      "tech": ["Python", "TypeScript", "Algorithms"]
+    }
+  ],
+  "services": [
+    {
+      "name": "Full Stack Web Development",
+      "description": "End-to-end web applications with React/Next.js frontend and Django/FastAPI backend."
+    },
+    {
+      "name": "AI & ML Integration",
+      "description": "Integrate machine learning models, NLP pipelines, and AI-assisted features into your product."
+    },
+    {
+      "name": "SaaS Development",
+      "description": "Build subscription-based SaaS products with auth, billing, dashboards, and APIs."
+    },
+    {
+      "name": "Trading & Fintech Systems",
+      "description": "Specialized in algorithmic trading platforms, derivatives analytics, and financial dashboards."
+    },
+    {
+      "name": "Corporate Platforms",
+      "description": "Premium, high-performance corporate websites with animations and modern UX."
+    }
+  ],
+  "stats": {
+    "projects": 6,
+    "yearsExperience": 2,
+    "satisfaction": 100,
+    "cgpa": 9.25
+  }
+}

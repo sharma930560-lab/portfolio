@@ -1,0 +1,20 @@
+# Performance Optimization at Scale
+
+In modern web development, performance isn't just a luxury—it's a critical component of user experience and SEO. This article explores FAANG-level strategies for building high-performance Next.js applications.
+
+## Key Strategies
+
+1. **Bundle Splitting**: Leveraging dynamic imports to reduce the initial load size.
+2. **Edge Caching**: Using Vercel or Netlify Edge functions to serve content closer to the user.
+3. **Zero-CLS Patterns**: Ensuring stable layouts during loading to prevent content shifts.
+
+```javascript
+// Example of a dynamic import
+import dynamic from 'next/dynamic'
+
+const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
+  loading: () => <p>Loading...</p>,
+})
+```
+
+By implementing these patterns, we can achieve sub-second load times and a perfect Lighthouse score.

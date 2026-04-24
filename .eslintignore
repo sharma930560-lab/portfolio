@@ -1,0 +1,8 @@
+archive/
+node_modules/
+.next/
+out/
+public/
+github_projects/
+build_output.txt
+build_output_fresh.txt

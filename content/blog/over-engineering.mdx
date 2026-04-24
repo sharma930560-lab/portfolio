@@ -1,0 +1,28 @@
+# Stop Over-Engineering Every Project
+
+I’m sitting here looking at my portfolio code, and I just deleted about 800 lines of WebGL logic. Why? Because it was slow, buggy, and nobody cares about a 3D orbital canvas if it makes their battery drain 10% in five minutes.
+
+I replaced it with a simple, hardware-accelerated SVG circuit animation. It looks better, runs at 120fps on my phone, and actually represents what I do (logic and interconnected systems) better than a random floating sphere.
+
+## The "Ego" in Engineering
+
+As developers, especially when we're just starting out or trying to prove ourselves, we tend to pick the "hardest" way to do things. We want to show off that we can handle Three.js, deep-nested abstractions, and complex state management libraries for a simple contact form.
+
+The truth is: **Complexity is a liability.**
+
+Every extra dependency you add is another point of failure. Every "clever" abstraction is something you’ll have to explain to your future self (or a coworker) in six months when it breaks.
+
+## My Recent Lesson
+
+While building this site, I spent three days fighting with a 3D renderer. It looked "cool" on my high-end workstation, but when I tested it on a mid-range phone, it was painful. I was so caught up in the "Premium UI" hype that I forgot the most important rule of engineering: **It has to work for the user, not just for you.**
+
+I switched to raw SVG and Framer Motion. The code is readable. The performance is perfect. And honestly? The "n8n style" circuit logic I built feels much more "engineery" than a generic 3D asset anyway.
+
+## Move Fast, Stay Simple
+
+If you're building a project right now:
+1. Use the simplest tool that gets the job done.
+2. Optimize for the lowest-end device your users might have.
+3. Don't be afraid to delete "cool" code if it makes the product better.
+
+Engineers are paid to solve problems, not to create complex puzzles. Keep it simple.
