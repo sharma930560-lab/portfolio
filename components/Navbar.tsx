@@ -58,10 +58,10 @@ export default function Navbar() {
                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="font-black text-white text-lg tracking-tighter uppercase italic leading-none group-hover:text-[#CCFF00] transition-colors">
+                            <span className="font-black text-white text-base sm:text-lg uppercase leading-none group-hover:text-[#CCFF00] transition-colors">
                                 Paras.Sharma
                             </span>
-                            <span className="font-mono text-[9px] text-[#FF00FF] tracking-[0.3em] font-bold mt-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <span className="font-mono text-[9px] text-[#FF00FF] tracking-[0.16em] font-bold mt-1 opacity-80 group-hover:opacity-100 transition-opacity break-words">
                                 PROTOCOL_SYSTEM_V.4
                             </span>
                         </div>
@@ -79,12 +79,12 @@ export default function Navbar() {
                                         : "text-white/40 hover:text-white"
                                     }`}
                                 >
-                                    <span className="relative z-10 transition-transform group-hover:skew-x-12">{link.label}</span>
+                                    <span className="relative z-10">{link.label}</span>
                                     
                                     {pathname === link.href && (
                                         <motion.div
                                             layoutId="nav-glow"
-                                            className="absolute inset-0 bg-[#CCFF00]/5 border-t border-[#CCFF00]/30 -skew-x-12"
+                                            className="absolute inset-0 bg-[#CCFF00]/5 border-t border-[#CCFF00]/30"
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                         />
@@ -165,7 +165,7 @@ export default function Navbar() {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className={`text-5xl font-black uppercase italic tracking-tighter transition-all hover:translate-x-4 ${
+                                                className={`text-[clamp(2rem,14vw,3rem)] font-black uppercase transition-all hover:translate-x-4 leading-tight break-words ${
                                                     pathname === link.href ? "text-[#CCFF00]" : "text-white/30 hover:text-white"
                                                 }`}
                                             >

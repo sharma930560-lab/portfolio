@@ -55,4 +55,5 @@ build_*.txt
 build_log_*.txt
 build_output*.txt
 build_result.txt
+dev-server*.log
 *.bat

@@ -8,6 +8,14 @@ import Magnetic from "@/components/animations/Magnetic"
 
 export default function StickyHireCTA() {
     const [visible, setVisible] = useState(false)
+    const [compact, setCompact] = useState(false)
+
+    useEffect(() => {
+        const syncViewport = () => setCompact(window.innerWidth < 768)
+        syncViewport()
+        window.addEventListener("resize", syncViewport)
+        return () => window.removeEventListener("resize", syncViewport)
+    }, [])
 
     useEffect(() => {
         const handler = () => setVisible(window.scrollY > 300)
@@ -25,9 +33,10 @@ export default function StickyHireCTA() {
                     transition={{ type: "spring", stiffness: 300, damping: 28 }}
                     style={{
                         position: "fixed",
-                        right: 0,
-                        top: "50%",
-                        transform: "translateY(-50%)",
+                        right: compact ? 16 : 0,
+                        bottom: compact ? 16 : "auto",
+                        top: compact ? "auto" : "50%",
+                        transform: compact ? "none" : "translateY(-50%)",
                         zIndex: 90,
                     }}
                     className="print:hidden"
@@ -39,11 +48,11 @@ export default function StickyHireCTA() {
                                 display: "flex",
                                 alignItems: "center",
                                 gap: "10px",
-                                padding: "14px 20px 14px 24px",
+                                padding: compact ? "12px 14px" : "14px 20px 14px 24px",
                                 background: "var(--acid-green)",
                                 color: "#000",
                                 border: "2px solid #000",
-                                borderRight: "none",
+                                borderRight: compact ? "2px solid #000" : "none",
                                 borderRadius: "0",
                                 fontFamily: "'Syne', sans-serif",
                                 fontWeight: 800,
@@ -51,7 +60,7 @@ export default function StickyHireCTA() {
                                 letterSpacing: "0.1em",
                                 textTransform: "uppercase",
                                 textDecoration: "none",
-                                boxShadow: "-6px 6px 0px 0px var(--hyper-pink)",
+                                boxShadow: compact ? "-4px 4px 0px 0px var(--hyper-pink)" : "-6px 6px 0px 0px var(--hyper-pink)",
                                 transition: "all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67)",
                             }}
                             className="group"
@@ -75,7 +84,7 @@ export default function StickyHireCTA() {
                                     background: "#000",
                                 }} />
                             </span>
-                            <span className="hidden sm:inline italic">Ready_to_Build?</span>
+                            <span className="hidden sm:inline">Ready_to_Build?</span>
                             <ArrowRight size={14} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Magnetic>

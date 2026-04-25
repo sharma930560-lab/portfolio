@@ -24,7 +24,7 @@ export function ChromaticText({ children, className = "" }: { children: React.Re
 
 export function OutlineText({ children }: { children: React.ReactNode }) {
     return (
-        <span className="text-stroke-acid" style={{ fontStyle: "italic" }}>
+        <span className="text-stroke-acid">
             {children}
         </span>
     )
@@ -55,17 +55,15 @@ export function Button({
     const isBlack   = variant === "black"
     const isChrome  = variant === "chrome"
 
-    const padding = size === "sm"  ? "0.4rem 1rem"
-                  : size === "lg"  ? "1rem 2.5rem"
-                  : "0.75rem 2rem"
-
-    const fontSize = size === "sm" ? "clamp(0.7rem, 1.2vw, 0.85rem)" : size === "lg" ? "clamp(0.9rem, 2vw, 1.2rem)" : "clamp(0.8rem, 1.5vw, 1rem)"
+    const fontSize = size === "sm" ? "0.78rem" : size === "lg" ? "1rem" : "0.9rem"
+    const padding = size === "sm" ? "0.55rem 1rem" : size === "lg" ? "0.9rem 1.75rem" : "0.75rem 1.35rem"
 
     const s: React.CSSProperties = {
         display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "12px",
-        padding: "10px 16px",
+        maxWidth: "100%",
+        padding,
         minHeight: "44px",
-        minWidth: "fit-content",
+        minWidth: 0,
         background: isOutline ? "transparent" : isBlack ? "#0a0a0a" : isChrome ? "linear-gradient(135deg, #FFFFFF 0%, #C0C0C0 50%, #FFFFFF 100%)" : "var(--acid-green)",
         color: isOutline ? "#fff" : isChrome ? "#000" : "#000",
         border: isOutline ? "1px solid var(--acid-green)" : "none",
@@ -74,9 +72,10 @@ export function Button({
         fontWeight: 800,
         fontSize,
         textTransform: "uppercase",
-        whiteSpace: "nowrap",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
+        lineHeight: 1.15,
+        whiteSpace: "normal",
+        overflowWrap: "anywhere",
+        textAlign: "center",
         cursor: disabled ? "not-allowed" : "pointer",
         textDecoration: "none",
         boxShadow: hovered && !disabled && !isChrome
@@ -90,7 +89,7 @@ export function Button({
         ...style,
     } as React.CSSProperties
 
-    const content = <>{leftIcon}<span>{children}</span>{rightIcon}</>
+    const content = <>{leftIcon}<span style={{ minWidth: 0, overflowWrap: "anywhere" }}>{children}</span>{rightIcon}</>
 
     if (Tag === "a" && href) {
         return (
@@ -156,21 +155,18 @@ export function Card({
         background: bg,
         border: "1px solid rgba(255,255,255,0.05)",
         borderRadius: "0",
-        boxShadow: hover && hovered ? "-8px 8px 0px var(--acid-green)" : "none",
+        boxShadow: hover && hovered ? "-6px 6px 0px var(--acid-green)" : "none",
         borderColor: hover && hovered ? "var(--acid-green)" : "rgba(255,255,255,0.05)",
-        transition: hovered ? "none" : "all 0.5s ease-out",
+        transition: "border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease",
         position: "relative",
         overflow: "hidden",
-        transformStyle: "preserve-3d",
-        transform: hover && hovered 
-            ? `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) translateZ(10px)` 
-            : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)",
+        transform: hover && hovered ? "translate(2px, -2px)" : "translate(0, 0)",
         ...style,
     }
 
     const interactiveProps = {
         style: s, 
-        className: `interactive-card ${className || ""}`, 
+        className: `interactive-card group ${className || ""}`, 
         onClick,
         onMouseEnter: () => setHovered(true),
         onMouseMove: handleMouseMove,
@@ -187,7 +183,7 @@ export function Card({
     )
 
     const contentWrapper = (
-        <div className="relative z-10 h-full" style={{ transform: "translateZ(20px)" }}>
+        <div className="relative z-10 h-full">
             {children}
         </div>
     )
@@ -226,6 +222,7 @@ export function Badge({ children, variant = "volt", rotated, style = {}, classNa
     return (
         <span className={className} style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
+            maxWidth: "100%",
             padding: "0.25rem 0.75rem",
             background: variant === "dark" ? "#000" : "rgba(204, 255, 0, 0.1)",
             color: variant === "white" ? "#fff" : "var(--acid-green)",
@@ -235,6 +232,9 @@ export function Badge({ children, variant = "volt", rotated, style = {}, classNa
             fontWeight: 700, fontSize: "0.65rem",
             textTransform: "uppercase",
             letterSpacing: "0.1em",
+            lineHeight: 1.25,
+            whiteSpace: "normal",
+            overflowWrap: "anywhere",
             transform: rotated ? "rotate(-3deg)" : "none",
             ...style,
         }}>
@@ -285,9 +285,10 @@ export function Section({ children, bg = "#000", bordered = true, style = {}, id
 export function SectionInner({ children, style = {}, className }: { children: React.ReactNode, style?: React.CSSProperties, className?: string }) {
     return (
         <div className={className} style={{
+            width: "100%",
             maxWidth: "1400px",
             margin: "0 auto",
-            padding: "3rem 1rem",
+            padding: "clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 2.5rem)",
             display: "flex",
             flexDirection: "column",
             gap: "24px",
@@ -315,8 +316,8 @@ export function PageHeader({ badge, title, subtitle, children }: PageHeaderProps
         <div className="bg-grid-acid" style={{
             background: "#000",
             borderBottom: "1px solid var(--acid-green)",
-            paddingTop: "6rem",
-            paddingBottom: "6rem",
+            paddingTop: "clamp(3rem, 8vw, 7rem)",
+            paddingBottom: "clamp(3rem, 8vw, 7rem)",
             position: "relative",
             overflow: "hidden",
         }}>
@@ -335,12 +336,12 @@ export function PageHeader({ badge, title, subtitle, children }: PageHeaderProps
                     {subtitle && (
                         <p style={{
                             fontFamily: "'Inter', sans-serif",
-                            fontSize: "1.25rem",
+                            fontSize: "clamp(0.95rem, 3.5vw, 1.25rem)",
                             color: "var(--text-secondary)",
                             maxWidth: "700px",
                             lineHeight: 1.6,
                             borderLeft: "2px solid var(--acid-green)",
-                            paddingLeft: "1.5rem",
+                            paddingLeft: "clamp(1rem, 4vw, 1.5rem)",
                             marginBottom: "2rem"
                         }}>
                             {subtitle}
@@ -417,8 +418,8 @@ export function SectionHeader({ badge, title, subtitle, align = "center" }: Sect
 ─────────────────────────────────────────────────────────────────────────────── */
 
 export function Grid({ children, columns = 3, gap = "md", style = {} }: { children: React.ReactNode, columns?: 2|3|4, gap?: "sm"|"md"|"lg", style?: React.CSSProperties }) {
-    const minWidth = columns === 4 ? "min(220px, 100%)" : columns === 3 ? "min(280px, 100%)" : "min(320px, 100%)"
-    const gapValue = gap === "sm" ? "1rem" : gap === "lg" ? "2.5rem" : "1.5rem"
+    const minWidth = columns === 4 ? "min(220px, 100%)" : columns === 3 ? "min(280px, 100%)" : "min(300px, 100%)"
+    const gapValue = gap === "sm" ? "1rem" : gap === "lg" ? "clamp(1rem, 3vw, 2.5rem)" : "clamp(1rem, 2vw, 1.5rem)"
     return (
         <div style={{
             display: "grid",
@@ -434,4 +435,3 @@ export function Grid({ children, columns = 3, gap = "md", style = {} }: { childr
 export function DotPattern() {
     return <div className="bg-grid-acid" style={{ position: "absolute", inset: 0, opacity: 0.1, pointerEvents: "none" }} />
 }
-
